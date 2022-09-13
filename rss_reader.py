@@ -1,5 +1,7 @@
 import argparse
 import logging
+from functools import cache
+
 
 from bs4 import BeautifulSoup
 from dateutil.parser import parse
@@ -100,6 +102,7 @@ def printFeeds(news):
     if is_JSON:
         print(news_list)
 
+@cache
 def getFeeds(URL):
 
     newsXml = requests.get(URL)
